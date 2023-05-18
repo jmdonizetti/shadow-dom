@@ -19,7 +19,13 @@ class CardCast extends HTMLElement {
             newImage.src = this.getAttribute("photo") || "assets/default.jpg";
             newImage.alt = "news photo";
 
-            card__image.appendChild(newImage);
+            const linkImage = document.createElement("a");
+            linkImage.href = this.getAttribute("link-url");
+            linkImage.setAttribute("target", "blank");
+
+            linkImage.appendChild(newImage);
+            card__image.appendChild(linkImage);
+            
 
             //Card__text
 
@@ -76,7 +82,7 @@ class CardCast extends HTMLElement {
             }
             
             
-            .card__image > img { 
+            img { 
                 width: 12.5rem;
                 border-radius: 10px;
                 box-shadow: 5px 5px 30px 2px #000;
